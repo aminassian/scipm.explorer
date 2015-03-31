@@ -20,12 +20,14 @@ scipm.explorer.start = function ()
         if props["scipm.explorer.config.GTK_cmd"] ~= "" then
             cmd = props["scipm.explorer.config.GTK_cmd"];
         end
+        cmd = cmd .. " \""..props['FileDir'].."\" &";
     else
         cmd = scipm.explorer.config.WIN_cmd;
         -- swith SciTE[Global|User|Directory|].properties
         if props["scipm.explorer.config.WIN_cmd"] ~= "" then
             cmd = props["scipm.explorer.config.WIN_cmd"];
         end
+        cmd = cmd .. " \""..props['FileDir'].."\"";
     end
 
     -- print(cmd);
