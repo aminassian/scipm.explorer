@@ -1,0 +1,70 @@
+{
+    "main": "index.js",
+    "name": "scipm.explorer",
+    "version": "0.1.0",
+    "description": "Open Explorer",
+    "license": "GPL-3.0",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/aminassian/scipm.explorer.git"
+    },
+    "bugs": {
+        "type": "git",
+        "url": "git://github.com/aminassian/scipm.explorer/issues"
+    },
+    "keywords": [
+        "scipm-package"
+    ],
+    "dependencies": {
+    },
+    "scipmchild": {
+        "version": "1",
+        "scipmDependencies": {
+            "scipm.exec": null
+        },
+        "luaRequire": [],
+        "SciTEStartup": {
+            "_use": "dofile",
+            "raw": null,
+            "filePath": null,
+            "dofile": ["scite", "main.lua"],
+            "luaReportExtend": "scipm.core.printInfoPackage('scipm.explorer')",
+            "infoLuaFunctions": [
+                {"name": "scipm.explorer.start()"}
+            ],
+            "infoFiles" : [
+                {"path": ["README.md" ]},
+                {"path": ["package.json" ]},
+                {"path": ["scite", "main.lua" ]}
+            ],
+            "infoProps": [
+                {"name": "scipm.explorer.config.GTK_cmd", "value": "\"dolphin\"", "default": "\"dolphin\"", "description": "if GTK then open this explorer"},
+                {"name": "scipm.explorer.config.WIN_cmd", "value": "\"explorer\"", "default": "\"explorer\"", "description": "if WIN then open this explorer"}
+            ]
+        },
+        "actions": {
+            "openExplorer": {
+                "title": "Open Explorer",
+                "description": "Open Explorer",
+                "pattern": [
+                    "*"
+                ],
+                "addToolsMenu": {
+                    "allow": true,
+                    "addContextMenu": true,
+                    "command": {
+                        "shortcuts": null,
+                        "subsystem": "luadirector",
+                        "cmd": "dostring scipm.explorer.start()",
+                        "isFilter": null,
+                        "saveBefore": "2",
+                        "input": null,
+                        "replaceSelection": null,
+                        "quiet": null,
+                        "mode": null
+                    }
+                }
+            }
+        }
+    }
+}

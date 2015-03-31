@@ -1,0 +1,1 @@
+console.log("scipm.explorer is not a classic nodejs/iojs module")
